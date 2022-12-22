@@ -10,6 +10,7 @@ import { RacaService } from '../raca.service';
 export class ListagemComponent implements OnInit {
   racas: any[] = [];
   racaSelecionada?: any;
+  carregando = true;
 
   constructor(private racaServico: RacaService, private router: Router) {
 
@@ -17,11 +18,14 @@ export class ListagemComponent implements OnInit {
 
   ngOnInit(): void {
     this.onListar();
+    
   }
 
   onListar(): void {
     this.racaServico.listarRacas().subscribe({
-      next: (resultado: any) => (this.racas = resultado)
+      next: (resultado: any) => (this.racas = resultado),
+      error: (erro: any) => console.log(erro),
+      complete: () => this.carregando = false
     });
   }
 

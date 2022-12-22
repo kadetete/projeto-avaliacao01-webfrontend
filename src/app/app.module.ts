@@ -10,8 +10,10 @@ import { DetalhesComponent } from './detalhes/detalhes.component';
 
 import { HttpClientModule } from '@angular/common/http';
 // primeng
-import { DropdownModule } from 'primeng/dropdown';
 import { TableModule } from 'primeng/table'
+import {ImageModule} from 'primeng/image';
+import {ButtonModule} from 'primeng/button';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
@@ -27,8 +29,10 @@ import { TableModule } from 'primeng/table'
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    DropdownModule,
-    TableModule
+    TableModule,
+    ImageModule,
+    ButtonModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

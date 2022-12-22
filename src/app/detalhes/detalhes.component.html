@@ -1,3 +1,26 @@
-<h2>Nome da raça: {{ nome }}</h2>
-<h2>Origem: {{ origem }}</h2>
-<h2>Descrição: {{ descricao }}</h2>
+<div *ngIf="carregando">
+    <h2>
+        Aguarde, carregando dados...
+    </h2>
+    <h2>
+        <p-progressSpinner 
+        [style]="{width: '50px', height: '50px'}" 
+        styleClass="custom-spinner" 
+        strokeWidth="8"
+        fill="var(--surface-ground)" 
+        animationDuration=".5s">
+        </p-progressSpinner>
+    </h2>
+</div>
+<div *ngIf="!carregando">
+    <h2>
+        <p-image [src]="foto" alt="Imagem do gato" width="450"></p-image>
+    </h2>
+    <h2>Nome da raça: {{ nome }}</h2> <p><a [href]="wikipedia"> >>>Wikipedia </a></p>
+    <h2>Origem: {{ origem }} / {{ codigopais }}</h2>
+    <h2>Peso: {{ peso }} Kg</h2>
+    <h2>Tempo de vida: {{ tempo_de_vida }} anos</h2>
+    <h2>Descrição: {{ descricao }}</h2>
+
+    <p-button routerLink="/listagem" label="voltar" class="p-button-link"></p-button>
+</div>

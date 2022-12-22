@@ -1,20 +1,42 @@
-<p-table 
-[value]="racas"
-[rows]="5"
-[paginator]="true"
-[showCurrentPageReport]="true">
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="name">Nome</th>
-            <th pSortableColumn="origin">Origem</th>
-            <th pSortableColumn="life_span">Tempo de vida</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-racas>
-        <tr>
-            <td> {{ racas.name }} </td>
-            <td> {{ racas.origin }} </td>
-            <td> {{ racas.life_span }} anos</td>
-        </tr>
-    </ng-template>
-</p-table>
+<div *ngIf="carregando">
+    <h2>
+        Aguarde, carregando dados...
+    </h2>
+    <h2>
+        <p-progressSpinner 
+        [style]="{width: '50px', height: '50px'}" 
+        styleClass="custom-spinner"
+        strokeWidth="8"
+        fill="var(--surface-ground)" 
+        animationDuration=".5s">
+        </p-progressSpinner>
+    </h2>
+</div>
+<div *ngIf="!carregando">
+    <p-table 
+    [value]="racas"
+    [rows]="10"
+    [paginator]="true"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="{first} a {last} de {totalRecords}"
+    [rowsPerPageOptions]="[10, 20, 40]"
+    selectionMode="single"
+    [(selection)]="racaSelecionada"
+    dataKey="id"
+    (onRowSelect)="onSelecionar()">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name">Nome <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="origin">Origem <p-sortIcon field="origin"></p-sortIcon></th>
+                <th pSortableColumn="life_span">Tempo de vida</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-racas>
+            <tr [pSelectableRow]="racas">
+                <td> {{ racas.name }} </td>
+                <td> {{ racas.origin }} </td>
+                <td> {{ racas.life_span }} anos</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
