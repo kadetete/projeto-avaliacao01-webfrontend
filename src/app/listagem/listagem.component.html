@@ -1,0 +1,20 @@
+<p-table 
+[value]="racas"
+[rows]="5"
+[paginator]="true"
+[showCurrentPageReport]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Nome</th>
+            <th pSortableColumn="origin">Origem</th>
+            <th pSortableColumn="life_span">Tempo de vida</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-racas>
+        <tr>
+            <td> {{ racas.name }} </td>
+            <td> {{ racas.origin }} </td>
+            <td> {{ racas.life_span }} anos</td>
+        </tr>
+    </ng-template>
+</p-table>
