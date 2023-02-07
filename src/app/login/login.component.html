@@ -1,14 +1,24 @@
 <h2>Login</h2>
 
-<form class="p-float-label">
-    <input id="float-input-usuario" type="text" pInputText >
-    <label for="float-input-usuario">Usuário</label>
+<form [formGroup]="usuarioForm" (ngSubmit)="onLogin()">
+    <table>
+        <tr class="p-float-label">
+            <input id="float-input-usuario" type="text" pInputText formControlName="usuario" [(ngModel)]="usuario">
+            <label for="float-input-usuario">Usuário</label>
+        </tr>
+        <tr class="p-float-label">
+            <input id="float-input-senha" type="text" pInputText formControlName="senha" [(ngModel)]="senha">
+            <label for="float-input-senha">Senha</label>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <p-button type="submit" [disabled]="!usuarioForm.valid" label="Logar" icon="pi pi-check"></p-button>&nbsp;
+                <p-button type="reset" label="Cancelar"></p-button>
+            </td>
+        </tr>
+    </table>
 </form>
 <br>
-<form class="p-float-label">
-    <input id="float-input-senha" type="text" pInputText [(ngModel)]="senha">
-    <label for="float-input-senha">Senha</label>
-</form>
-<br>
-<button pButton label="Logar" icon="pi pi-check" (click)="onLogin()"></button>
+
 <p>{{ error_mensagem }}</p>

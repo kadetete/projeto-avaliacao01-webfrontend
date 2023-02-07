@@ -8,7 +8,7 @@ export class LoginService {
   constructor() { }
 
   login(usuario: string, senha: string): boolean {
-    if (usuario == 'admin' && senha == '1234') {
+    if (usuario == 'joaodasilva' && senha == 'admin123') {
       localStorage.setItem('autenticou-se', 'sim');
       return true;
     }
