@@ -14,6 +14,7 @@ import { TableModule } from 'primeng/table'
 import {ImageModule} from 'primeng/image';
 import {ButtonModule} from 'primeng/button';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -21,7 +22,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
   declarations: [
     AppComponent,
     ListagemComponent,
-    DetalhesComponent
+    DetalhesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
