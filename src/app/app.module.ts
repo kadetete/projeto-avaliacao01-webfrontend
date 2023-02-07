@@ -15,7 +15,7 @@ import {ImageModule} from 'primeng/image';
 import {ButtonModule} from 'primeng/button';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { LoginComponent } from './login/login.component';
-
+import {InputTextModule} from 'primeng/inputtext';
 
 
 @NgModule({
@@ -34,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     TableModule,
     ImageModule,
     ButtonModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

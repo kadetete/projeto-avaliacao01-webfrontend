@@ -1,1 +1,14 @@
-<p>login works!</p>
+<h2>Login</h2>
+
+<form class="p-float-label">
+    <input id="float-input-usuario" type="text" pInputText >
+    <label for="float-input-usuario">Usuário</label>
+</form>
+<br>
+<form class="p-float-label">
+    <input id="float-input-senha" type="text" pInputText [(ngModel)]="senha">
+    <label for="float-input-senha">Senha</label>
+</form>
+<br>
+<button pButton label="Logar" icon="pi pi-check" (click)="onLogin()"></button>
+<p>{{ error_mensagem }}</p>
